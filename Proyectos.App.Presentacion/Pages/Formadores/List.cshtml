@@ -1,0 +1,30 @@
+﻿@page
+@model Proyectos.App.Presentacion.Pages.ListModel
+@{
+    
+}
+
+<h1>Listado de Formadores</h1>
+
+<table class="table">
+    @foreach (var formador in Model.formadores)
+    {
+        <tr>
+            <td>@formador.id</td>
+            <td>@formador.identificacion</td>
+            <td>@formador.nombre</td>
+            <td>
+                <a class="btn btn-primary table-btn" asp-page="./Details" asp-route-formadorId="@formador.id">
+                    Detalle</a>
+            </td>
+
+            <td>
+                <a class="btn btn-primary table-btn" asp-page="./Edit" asp-route-formadorId="@formador.id">
+                    Editar
+                </a>
+            </td> 
+        </tr>
+    }
+</table>
+
+<a asp-page=".\Edit" class="btn btn-primary">Adicionar un formador</a>
