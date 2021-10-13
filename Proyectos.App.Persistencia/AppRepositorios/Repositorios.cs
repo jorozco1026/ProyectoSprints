@@ -21,15 +21,15 @@ namespace Proyectos.App.Persistencia.AppRepositorios
 
         Formador IRepositorios.AddFormador(Formador formador)
         {
-        try
-         {
-            var FormadorAdicionado = _appContext.Formadores.Add( formador );  //INSERT en la BD
+          try
+          {
+            var FormadorAdicionado = _appContext.Formadores.Add( formador ); //INSERT en la BD
             _appContext.SaveChanges();                  
             return FormadorAdicionado.Entity;
           }catch
-            {
+          {
                 throw;
-            }
+          }
         }
 
         IEnumerable<Formador> IRepositorios.GetAllFormadores()

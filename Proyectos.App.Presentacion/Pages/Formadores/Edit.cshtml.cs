@@ -18,11 +18,12 @@ namespace Proyectos.App.Presentacion.Pages
         public Formador formador  { get; set; } 
 
         public EditModel()
-       {
+        {
             this._appContext  =new Repositorios(new Proyectos.App.Persistencia.AppRepositorios.AppContext());
-       }
+        }
      
 
+        //se ejecuta al presionar Editar en la lista
         public IActionResult OnGet(int? formadorId)
         {
             if (formadorId.HasValue)
@@ -42,6 +43,7 @@ namespace Proyectos.App.Presentacion.Pages
 
         }
 
+        //se ejecuta al presionar Editar en el formulario
         public IActionResult OnPost()
         {
             if(!ModelState.IsValid)
@@ -50,7 +52,7 @@ namespace Proyectos.App.Presentacion.Pages
             }
             if(formador.id > 0)
             {
-               formador = _appContext.UpdateFormador(formador);
+               formador = _appContext.UpdateFormador(formador);               
             }
             else
             {

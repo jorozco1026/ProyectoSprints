@@ -20,6 +20,7 @@ namespace Proyectos.App.Presentacion.Pages
             this._appContext=new Repositorios(new Proyectos.App.Persistencia.AppRepositorios.AppContext());
         }
 
+        //se ejecuta al presionar Detalle en la lista
         public IActionResult OnGet(int formadorId)
         {
             formador = _appContext.GetFormador(formadorId);

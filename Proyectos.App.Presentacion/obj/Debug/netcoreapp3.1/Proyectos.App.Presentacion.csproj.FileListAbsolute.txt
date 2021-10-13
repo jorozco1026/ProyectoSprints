@@ -84,3 +84,4 @@ C:\proyectos_ciclo3\Proyectos.App\Proyectos.App.Presentacion\obj\Debug\netcoreap
 C:\proyectos_ciclo3\Proyectos.App\Proyectos.App.Presentacion\obj\Debug\netcoreapp3.1\Razor\Pages\Formadores\List.cshtml.g.cs
 C:\proyectos_ciclo3\Proyectos.App\Proyectos.App.Presentacion\obj\Debug\netcoreapp3.1\Razor\Pages\Formadores\Edit.cshtml.g.cs
 C:\proyectos_ciclo3\Proyectos.App\Proyectos.App.Presentacion\obj\Debug\netcoreapp3.1\Razor\Pages\Formadores\Details.cshtml.g.cs
+C:\proyectos_ciclo3\Proyectos.App\Proyectos.App.Presentacion\obj\Debug\netcoreapp3.1\Razor\Pages\Formadores\Delete.cshtml.g.cs
