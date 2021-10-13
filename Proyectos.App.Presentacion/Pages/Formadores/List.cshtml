@@ -1,10 +1,20 @@
 ﻿@page
 @model Proyectos.App.Presentacion.Pages.ListModel
 @{
-    
+   var searchString = Model.searchString; 
 }
-
 <h1>Listado de Formadores</h1>
+<p>
+    @Html.ActionLink("Create New", "./List")
+</p>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Buscar x Nombre: @Html.TextBox("SearchString")  
+        <input type="submit" value="Search" />
+    </p>
+}
 
 <table class="table">
     @foreach (var formador in Model.formadores)

@@ -11,6 +11,7 @@ namespace Proyectos.App.Persistencia.AppRepositorios
     public class Repositorios : IRepositorios
     {
         private readonly AppContext _appContext;
+        public IEnumerable<Formador> formadores {get; set;} 
 
        public Repositorios(AppContext appContext)
         {
@@ -32,9 +33,14 @@ namespace Proyectos.App.Persistencia.AppRepositorios
           }
         }
 
-        IEnumerable<Formador> IRepositorios.GetAllFormadores()
+        IEnumerable<Formador> IRepositorios.GetAllFormadores(string? nombre)
         {
-            return _appContext.Formadores;
+            if (nombre != null) {
+              formadores = _appContext.Formadores.Where(p => p.nombre.Contains(nombre));
+            }
+            else 
+               formadores = _appContext.Formadores;
+            return formadores;
         }
 
        Formador IRepositorios.GetFormador(int? idFormador)

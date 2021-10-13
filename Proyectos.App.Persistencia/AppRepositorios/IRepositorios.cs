@@ -12,7 +12,7 @@ namespace Proyectos.App.Persistencia.AppRepositorios
     {
         //contratos o firmas para los metodos Formador        
         Formador AddFormador(Formador formador);
-        IEnumerable<Formador> GetAllFormadores();         
+        IEnumerable<Formador> GetAllFormadores(string? nombre);         
         Formador GetFormador(int? idFormador);
         Formador UpdateFormador(Formador formador);
         void DeleteFormador(int idFormador); 

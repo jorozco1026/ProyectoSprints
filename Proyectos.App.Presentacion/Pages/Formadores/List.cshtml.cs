@@ -16,16 +16,28 @@ namespace Proyectos.App.Presentacion.Pages
     public class ListModel : PageModel
     {
         private readonly IRepositorios _appContext;
-        public IEnumerable<Formador> formadores {get; set;}         
+        public IEnumerable<Formador> formadores {get; set;} 
+
+        public string searchString;     
 
         public ListModel()
         {
             this._appContext = new Repositorios(new Proyectos.App.Persistencia.AppRepositorios.AppContext());
         }
        
-        public void OnGet(string filtroBusqueda)
+        public void OnGet()
         {
-            formadores = _appContext.GetAllFormadores();          
+            formadores =_appContext.GetAllFormadores(searchString); 
+        }
+
+        public IActionResult OnPost(string? searchString)
+        {
+            if(!ModelState.IsValid)
+            {
+                return Page();
+            }
+            formadores = _appContext.GetAllFormadores(searchString);
+            return Page();
         }
     }
 }
