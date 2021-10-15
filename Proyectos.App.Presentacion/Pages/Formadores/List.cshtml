@@ -1,11 +1,11 @@
 ﻿@page
-@model Proyectos.App.Presentacion.Pages.ListModel
+@model Proyectos.App.Presentacion.Pages.Formadores.ListModel
 @{
    var searchString = Model.searchString; 
 }
 <h1>Listado de Formadores</h1>
 <p>
-    @Html.ActionLink("Create New", "./List")
+    @Html.ActionLink("Listar Todo", "./List")
 </p>
 
 @using (Html.BeginForm())

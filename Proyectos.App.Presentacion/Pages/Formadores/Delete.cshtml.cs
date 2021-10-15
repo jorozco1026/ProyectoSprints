@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Proyectos.App.Dominio;
 using Proyectos.App.Persistencia.AppRepositorios;
 
-namespace Proyectos.App.Presentacion.Pages
+namespace Proyectos.App.Presentacion.Pages.Formadores
 {
     public class DeleteModel : PageModel
     {
@@ -32,7 +32,7 @@ namespace Proyectos.App.Presentacion.Pages
                 return RedirectToPage("./NotFound");
             }
             else
-            return Page();
+                return Page();
 
         }
 

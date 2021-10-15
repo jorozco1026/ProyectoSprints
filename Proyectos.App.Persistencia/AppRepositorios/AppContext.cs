@@ -6,6 +6,11 @@ namespace Proyectos.App.Persistencia.AppRepositorios
     public class AppContext  : DbContext
     {
         public DbSet<Formador> Formadores { get; set; }
+        public DbSet<Tutor> Tutores { get; set; }
+        public DbSet<Estudiante> Estudiantes{ get; set; }
+        public DbSet<Rol> Roles { get; set; }
+        public DbSet<EstadoProyecto> EstadoProyectos { get; set; }
+        public DbSet<EstadoTarea> EstadoTareas { get; set; }
   
         //crear el deContext
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

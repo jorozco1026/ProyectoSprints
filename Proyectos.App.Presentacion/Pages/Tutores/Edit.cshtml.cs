@@ -8,14 +8,14 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Proyectos.App.Dominio;
 using Proyectos.App.Persistencia.AppRepositorios;
 
-namespace Proyectos.App.Presentacion.Pages.Formadores
+namespace Proyectos.App.Presentacion.Pages.Tutores
 {
     public class EditModel : PageModel
     {
        private readonly IRepositorios _appContext;
 
         [BindProperty]
-        public Formador formador  { get; set; } 
+        public Tutor tutor  { get; set; } 
 
         public EditModel()
         {
@@ -24,18 +24,18 @@ namespace Proyectos.App.Presentacion.Pages.Formadores
      
 
         //se ejecuta al presionar Editar en la lista
-        public IActionResult OnGet(int? formadorId)
+        public IActionResult OnGet(int? tutorId)
         {
-            if (formadorId.HasValue)
+            if (tutorId.HasValue)
             {
-                formador = _appContext.GetFormador(formadorId.Value);
+                tutor = _appContext.GetTutor(tutorId.Value);
             }
             else
             {
-                formador = new Formador();
+                tutor = new Tutor();
             }
 
-            if (formador == null)
+            if (tutor == null)
             {
                 return RedirectToPage("./NotFound");
             }
@@ -51,13 +51,13 @@ namespace Proyectos.App.Presentacion.Pages.Formadores
             {
                 return Page();
             }
-            if(formador.id > 0)
+            if(tutor.id > 0)
             {
-               formador = _appContext.UpdateFormador( formador );               
+               tutor = _appContext.UpdateTutor( tutor );               
             }
             else
             {
-               _appContext.AddFormador( formador );
+               _appContext.AddTutor( tutor );
             }
             return Page();
         }

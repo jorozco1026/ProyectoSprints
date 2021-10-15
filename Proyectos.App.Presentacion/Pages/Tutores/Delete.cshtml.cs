@@ -8,34 +8,26 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Proyectos.App.Dominio;
 using Proyectos.App.Persistencia.AppRepositorios;
 
-namespace Proyectos.App.Presentacion.Pages.Formadores
+namespace Proyectos.App.Presentacion.Pages.Tutores
 {
-    public class EditModel : PageModel
+    public class DeleteModel : PageModel
     {
        private readonly IRepositorios _appContext;
 
         [BindProperty]
-        public Formador formador  { get; set; } 
+        public Tutor tutor  { get; set; } 
 
-        public EditModel()
+        public DeleteModel()
         {
             this._appContext  =new Repositorios(new Proyectos.App.Persistencia.AppRepositorios.AppContext());
         }
      
 
-        //se ejecuta al presionar Editar en la lista
-        public IActionResult OnGet(int? formadorId)
+        //se ejecuta al presionar Eliminar en la lista
+        public IActionResult OnGet(int tutorId)
         {
-            if (formadorId.HasValue)
-            {
-                formador = _appContext.GetFormador(formadorId.Value);
-            }
-            else
-            {
-                formador = new Formador();
-            }
-
-            if (formador == null)
+            tutor = _appContext.GetTutor(tutorId);
+            if(tutor == null)
             {
                 return RedirectToPage("./NotFound");
             }
@@ -44,20 +36,16 @@ namespace Proyectos.App.Presentacion.Pages.Formadores
 
         }
 
-        //se ejecuta al presionar Editar en el formulario
+        //se ejecuta al presionar Eliminar en el formulario 
         public IActionResult OnPost()
         {
             if(!ModelState.IsValid)
             {
                 return Page();
             }
-            if(formador.id > 0)
+            if(tutor.id > 0)
             {
-               formador = _appContext.UpdateFormador( formador );               
-            }
-            else
-            {
-               _appContext.AddFormador( formador );
+               _appContext.DeleteTutor(tutor.id);
             }
             return Page();
         }

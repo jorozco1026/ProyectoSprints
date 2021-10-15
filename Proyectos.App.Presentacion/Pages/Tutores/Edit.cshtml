@@ -1,0 +1,26 @@
+﻿@page
+@model Proyectos.App.Presentacion.Pages.Tutores.EditModel
+
+@{
+    int tutorId = Model.tutor.id;
+}
+
+<h2>Edición de los datos del tutor @Model.tutor.nombre @Model.tutor.identificacion</h2>
+<form method="post">
+    <input type="hidden" asp-for="tutor.id" />  
+      
+    <div class="form-group">
+        <label asp-for="tutor.identificacion"></label>
+        <input asp-for="tutor.identificacion" class="form-control">
+        <span class="text-danger" asp-validation-for="tutor.identificacion"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="tutor.nombre"></label>
+        <input asp-for="tutor.nombre" class="form-control">
+        <span class="text-danger" asp-validation-for="tutor.nombre"></span>
+    </div>
+
+    <button type="submit" class="btn btn-success">Grabar</button>    
+</form>
+
+<a asp-page="./List" class="btn-default">Regresar a la lista de tutores </a>

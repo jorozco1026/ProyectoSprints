@@ -8,12 +8,12 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Proyectos.App.Dominio;
 using Proyectos.App.Persistencia.AppRepositorios;
 
-namespace Proyectos.App.Presentacion.Pages.Formadores
+namespace Proyectos.App.Presentacion.Pages.Tutores
 {
     public class DetailsModel : PageModel
     {
         private readonly IRepositorios _appContext;
-        public Formador formador { get; set; }
+        public Tutor tutor { get; set; }
 
         public DetailsModel()
         {
@@ -21,10 +21,10 @@ namespace Proyectos.App.Presentacion.Pages.Formadores
         }
 
         //se ejecuta al presionar Detalle en la lista
-        public IActionResult OnGet(int formadorId)
+        public IActionResult OnGet(int tutorId)
         {
-            formador = _appContext.GetFormador(formadorId);
-            if(formador == null)
+            tutor = _appContext.GetTutor(tutorId);
+            if(tutor == null)
             {
                 return RedirectToPage("./NotFound");
             }

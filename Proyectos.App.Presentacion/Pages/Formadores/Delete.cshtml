@@ -1,5 +1,5 @@
 ﻿@page
-@model Proyectos.App.Presentacion.Pages.DeleteModel
+@model Proyectos.App.Presentacion.Pages.Formadores.DeleteModel
 
 @{
     int formadorId = Model.formador.id;
@@ -8,6 +8,7 @@
 <h2>Edición de los datos del formador @Model.formador.nombre @Model.formador.identificacion</h2>
 <form method="post">
     <input type="hidden" asp-for="formador.id" />    
+    
     <div class="form-group">
         <label asp-for="formador.identificacion"></label>
         <input asp-for="formador.identificacion" class="form-control" disabled>

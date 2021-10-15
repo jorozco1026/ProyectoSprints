@@ -1,0 +1,17 @@
+﻿@page
+@model Proyectos.App.Presentacion.Pages.Tutores.DetailsModel
+@{
+}
+
+<h2>Datos Detallados de Tutor @Model.tutor.identificacion @Model.tutor.nombre</h2>
+<div>
+    ID: @Model.tutor.id
+</div>
+<div>
+    IDENTIFICACIÓN: @Model.tutor.identificacion
+</div>
+<div>
+    NOMBRES: @Model.tutor.nombre
+</div>
+
+<a asp-page="./List" class="btn btn-default">Volver a la Lista de tutores.. </a>

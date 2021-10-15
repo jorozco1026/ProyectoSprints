@@ -10,13 +10,13 @@ using Proyectos.App.Dominio;
 using Proyectos.App.Persistencia.AppRepositorios;
 using Proyectos.App.Persistencia;
 
-namespace Proyectos.App.Presentacion.Pages.Formadores
+namespace Proyectos.App.Presentacion.Pages.Tutores
 {
     //[Authorize]
     public class ListModel : PageModel
     {
         private readonly IRepositorios _appContext;
-        public IEnumerable<Formador> formadores {get; set;} 
+        public IEnumerable<Tutor> tutores {get; set;} 
 
         public string searchString;     
 
@@ -27,7 +27,7 @@ namespace Proyectos.App.Presentacion.Pages.Formadores
        
         public void OnGet()
         {
-            formadores =_appContext.GetAllFormadores(searchString); 
+            tutores =_appContext.GetAllTutores(searchString); 
         }
 
         public IActionResult OnPost(string? searchString)
@@ -36,7 +36,7 @@ namespace Proyectos.App.Presentacion.Pages.Formadores
             {
                 return Page();
             }
-            formadores = _appContext.GetAllFormadores(searchString);
+            tutores = _appContext.GetAllTutores(searchString);
             return Page();
         }
     }
