@@ -1,0 +1,45 @@
+﻿@page
+@model Proyectos.App.Presentacion.Pages.EstadoTareas.ListModel
+@{
+   var searchString = Model.searchString; 
+}
+<h1>Listado de EstadoTareas</h1>
+<p>
+    @Html.ActionLink("Listar Todo", "./List")
+</p>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Buscar x Nombre: @Html.TextBox("SearchString")  
+        <input type="submit" value="Search" />
+    </p>
+}
+
+<table class="table">
+    @foreach (var estadoTarea in Model.estadoTareas)
+    {
+        <tr>
+            <td>@estadoTarea.id</td>
+            <td>@estadoTarea.nombre</td>
+            <td>
+                <a class="btn btn-primary table-btn" asp-page="./Details" asp-route-estadoTareaId="@estadoTarea.id">
+                    Detalle</a>
+            </td>
+
+            <td>
+                <a class="btn btn-primary table-btn" asp-page="./Edit" asp-route-estadoTareaId="@estadoTarea.id">
+                    Editar
+                </a>
+            </td> 
+
+            <td>
+                <a class="btn btn-danger table-btn" asp-page="./Delete" asp-route-estadoTareaId="@estadoTarea.id">
+                    Eliminar
+                </a>
+            </td> 
+        </tr>
+    }
+</table>
+
+<a asp-page=".\Edit" class="btn btn-primary">Adicionar un estadoTarea</a>

@@ -51,5 +51,12 @@ namespace Proyectos.App.Persistencia.AppRepositorios
         EstadoTarea GetEstadoTarea(int? idEstadoTarea);
         EstadoTarea UpdateEstadoTarea(EstadoTarea estadoTarea);
         void DeleteEstadoTarea(int idEstadoTarea);
+
+        //firmas equipos
+        Equipo AddEquipo(Equipo equipo);
+        IEnumerable<Equipo> GetAllEquipos(string? nombre);         
+        Equipo GetEquipo(int? idEquipo);
+        Equipo UpdateEquipo(Equipo equipo);
+        void DeleteEquipo(int idEquipo);
     }
 }

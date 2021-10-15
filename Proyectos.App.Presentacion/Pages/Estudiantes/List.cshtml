@@ -1,0 +1,48 @@
+﻿@page
+@model Proyectos.App.Presentacion.Pages.Estudiantes.ListModel
+@{
+   var searchString = Model.searchString; 
+}
+<h1>Listado de Estudiantes</h1>
+<p>
+    @Html.ActionLink("Listar Todo", "./List")
+</p>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Buscar x Nombre: @Html.TextBox("SearchString")  
+        <input type="submit" value="Search" />
+    </p>
+}
+
+<table class="table">
+    @foreach (var estudiante in Model.estudiantes)
+    {
+        <tr>
+            <td>@estudiante.id</td>
+            <td>@estudiante.identificacion</td>
+            <td>@estudiante.nombre</td>
+            <td>@estudiante.movil</td>
+            <td>@estudiante.mail</td>
+            <td>
+                <a class="btn btn-primary table-btn" asp-page="./Details" asp-route-estudianteId="@estudiante.id">
+                    Detalle</a>
+            </td>
+
+            <td>
+                <a class="btn btn-primary table-btn" asp-page="./Edit" asp-route-estudianteId="@estudiante.id">
+                    Editar
+                </a>
+            </td> 
+
+            <td>
+                <a class="btn btn-danger table-btn" asp-page="./Delete" asp-route-estudianteId="@estudiante.id">
+                    Eliminar
+                </a>
+            </td> 
+        </tr>
+    }
+</table>
+
+<a asp-page=".\Edit" class="btn btn-primary">Adicionar un estudiante</a>

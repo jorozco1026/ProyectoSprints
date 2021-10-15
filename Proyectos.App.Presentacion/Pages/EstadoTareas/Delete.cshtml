@@ -1,0 +1,19 @@
+﻿@page
+@model Proyectos.App.Presentacion.Pages.EstadoTareas.DeleteModel
+
+@{
+    int estadoTareaId = Model.estadoTarea.id;
+}
+
+<h2>Edición de los datos del estadoTarea @Model.estadoTarea.nombre</h2>
+<form method="post">
+    <input type="hidden" asp-for="estadoTarea.id" /> 
+    <div class="form-group">
+        <label asp-for="estadoTarea.nombre"></label>
+        <input asp-for="estadoTarea.nombre" class="form-contestadoTarea" disabled>
+        <span class="text-danger" asp-validation-for="estadoTarea.nombre"></span>
+    </div>  
+    <button type="submit" class="btn btn-danger">ELIMINAR</button>    
+</form>
+
+<a asp-page="./List" class="btn-default">Regresar a la lista de estadoTareas </a>

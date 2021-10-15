@@ -1,0 +1,29 @@
+﻿@page
+@model Proyectos.App.Presentacion.Pages.Equipos.DetailsModel
+@{
+}
+
+<h2>Datos Detallados de Rol @Model.equipo.nombre</h2>
+<div>
+    ID: @Model.equipo.id
+</div>
+<div>
+    CÓDIGO: @Model.equipo.codigo
+</div>
+<div>
+    NOMBRES: @Model.equipo.nombre
+</div>
+<div>
+    MEET: @Model.equipo.meet
+</div>
+<div>
+    WHATAPP: @Model.equipo.whatapp
+</div>
+<div>
+    FORMADOR: @Model.equipo.formador
+</div>
+<div>
+    TUTOR: @Model.equipo.tutor
+</div>
+
+<a asp-page="./List" class="btn btn-default">Volver a la Lista de equipos.. </a>

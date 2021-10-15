@@ -1,0 +1,45 @@
+﻿@page
+@model Proyectos.App.Presentacion.Pages.EstadoProyectos.ListModel
+@{
+   var searchString = Model.searchString; 
+}
+<h1>Listado de EstadoProyectos</h1>
+<p>
+    @Html.ActionLink("Listar Todo", "./List")
+</p>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Buscar x Nombre: @Html.TextBox("SearchString")  
+        <input type="submit" value="Search" />
+    </p>
+}
+
+<table class="table">
+    @foreach (var estadoProyecto in Model.estadoProyectos)
+    {
+        <tr>
+            <td>@estadoProyecto.id</td>
+            <td>@estadoProyecto.nombre</td>
+            <td>
+                <a class="btn btn-primary table-btn" asp-page="./Details" asp-route-estadoProyectoId="@estadoProyecto.id">
+                    Detalle</a>
+            </td>
+
+            <td>
+                <a class="btn btn-primary table-btn" asp-page="./Edit" asp-route-estadoProyectoId="@estadoProyecto.id">
+                    Editar
+                </a>
+            </td> 
+
+            <td>
+                <a class="btn btn-danger table-btn" asp-page="./Delete" asp-route-estadoProyectoId="@estadoProyecto.id">
+                    Eliminar
+                </a>
+            </td> 
+        </tr>
+    }
+</table>
+
+<a asp-page=".\Edit" class="btn btn-primary">Adicionar un estadoProyecto</a>

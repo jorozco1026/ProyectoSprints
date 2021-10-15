@@ -1,0 +1,50 @@
+﻿@page
+@model Proyectos.App.Presentacion.Pages.Equipos.ListModel
+@{
+   var searchString = Model.searchString; 
+}
+<h1>Listado de Equipos</h1>
+<p>
+    @Html.ActionLink("Listar Todo", "./List")
+</p>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Buscar x Nombre: @Html.TextBox("SearchString")  
+        <input type="submit" value="Search" />
+    </p>
+}
+
+<table class="table">
+    @foreach (var equipo in Model.equipos)
+    {
+        <tr>
+            <td>@equipo.id</td>
+            <td>@equipo.codigo</td>
+            <td>@equipo.nombre</td>
+            <td>@equipo.meet</td>
+            <td>@equipo.whatapp</td>
+            <td>@equipo.formador</td>            v
+            <td>@equipo.tutor</td>     
+            <td>
+                <a class="btn btn-primary table-btn" asp-page="./Details" asp-route-equipoId="@equipo.id">
+                    Detalle</a>
+            </td>
+
+            <td>
+                <a class="btn btn-primary table-btn" asp-page="./Edit" asp-route-equipoId="@equipo.id">
+                    Editar
+                </a>
+            </td> 
+
+            <td>
+                <a class="btn btn-danger table-btn" asp-page="./Delete" asp-route-equipoId="@equipo.id">
+                    Eliminar
+                </a>
+            </td> 
+        </tr>
+    }
+</table>
+
+<a asp-page=".\Edit" class="btn btn-primary">Adicionar un equipo</a>

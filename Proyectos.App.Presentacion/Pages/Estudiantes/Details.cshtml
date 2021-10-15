@@ -1,0 +1,23 @@
+﻿@page
+@model Proyectos.App.Presentacion.Pages.Estudiantes.DetailsModel
+@{
+}
+
+<h2>Datos Detallados de Estudiante @Model.estudiante.identificacion @Model.estudiante.nombre</h2>
+<div>
+    ID: @Model.estudiante.id
+</div>
+<div>
+    IDENTIFICACIÓN: @Model.estudiante.identificacion
+</div>
+<div>
+    NOMBRES: @Model.estudiante.nombre
+</div>
+<div>
+    NOMBRES: @Model.estudiante.movil
+</div>
+<div>
+    NOMBRES: @Model.estudiante.mail
+</div>
+
+<a asp-page="./List" class="btn btn-default">Volver a la Lista de estudiantes.. </a>

@@ -11,6 +11,7 @@ namespace Proyectos.App.Persistencia.AppRepositorios
         public DbSet<Rol> Roles { get; set; }
         public DbSet<EstadoProyecto> EstadoProyectos { get; set; }
         public DbSet<EstadoTarea> EstadoTareas { get; set; }
+        public DbSet<Equipo> Equipos { get; set; }
   
         //crear el deContext
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -18,7 +19,7 @@ namespace Proyectos.App.Persistencia.AppRepositorios
             if (!optionsBuilder.IsConfigured)
             {
             optionsBuilder
-           .UseSqlServer("Server=localhost; user id=sa; password=12345; Initial Catalog=Proyectos;");            
+           .UseSqlServer("Server=localhost; user id=sa; password=12345; Initial Catalog=ProyectoSprint;");            
             }
         }        
     }

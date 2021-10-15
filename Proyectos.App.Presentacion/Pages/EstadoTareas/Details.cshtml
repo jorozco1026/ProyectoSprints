@@ -1,0 +1,14 @@
+﻿@page
+@model Proyectos.App.Presentacion.Pages.EstadoTareas.DetailsModel
+@{
+}
+
+<h2>Datos Detallados de EstadoTarea @Model.estadoTarea.nombre</h2>
+<div>
+    ID: @Model.estadoTarea.id
+</div>
+<div>
+    NOMBRES: @Model.estadoTarea.nombre
+</div>
+
+<a asp-page="./List" class="btn btn-default">Volver a la Lista de estadoTareas.. </a>

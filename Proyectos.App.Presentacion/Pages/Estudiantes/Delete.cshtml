@@ -1,0 +1,36 @@
+﻿@page
+@model Proyectos.App.Presentacion.Pages.Estudiantes.DeleteModel
+
+@{
+    int estudianteId = Model.estudiante.id;
+}
+
+<h2>Edición de los datos del estudiante @Model.estudiante.nombre @Model.estudiante.identificacion</h2>
+<form method="post">
+    <input type="hidden" asp-for="estudiante.id" />    
+    
+    <div class="form-group">
+        <label asp-for="estudiante.identificacion"></label>
+        <input asp-for="estudiante.identificacion" class="form-control" disabled>
+        <span class="text-danger" asp-validation-for="estudiante.identificacion"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="estudiante.nombre"></label>
+        <input asp-for="estudiante.nombre" class="form-control" disabled>
+        <span class="text-danger" asp-validation-for="estudiante.nombre"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="estudiante.movil"></label>
+        <input asp-for="estudiante.movil" class="form-control" disabled>
+        <span class="text-danger" asp-validation-for="estudiante.movil"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="estudiante.mail"></label>
+        <input asp-for="estudiante.mail" class="form-control" disabled>
+        <span class="text-danger" asp-validation-for="estudiante.mail"></span>
+    </div>
+
+    <button type="submit" class="btn btn-danger">ELIMINAR</button>    
+</form>
+
+<a asp-page="./List" class="btn-default">Regresar a la lista de estudiantes </a>

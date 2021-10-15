@@ -1,0 +1,73 @@
+﻿@page
+@model Proyectos.App.Presentacion.Pages.Equipos.EditModel
+
+@{
+    int equipoId = Model.equipo.id;
+    int formadorId = Model.equipo.formador;
+    int tutorId = Model.equipo.tutor;
+}
+
+<h2>Edición de los datos del equipo @Model.equipo.nombre</h2>
+<form method="post">
+    <input type="hidden" asp-for="equipo.id" />
+    <div class="form-group">
+        <label asp-for="equipo.codigo"></label>
+        <input asp-for="equipo.codigo" class="form-control">
+        <span class="text-danger" asp-validation-for="equipo.codigo"></span>
+    </div>  
+      
+    <div class="form-group">
+        <label asp-for="equipo.nombre"></label>
+        <input asp-for="equipo.nombre" class="form-control">
+        <span class="text-danger" asp-validation-for="equipo.nombre"></span>
+    </div> 
+      
+    <div class="form-group">
+        <label asp-for="equipo.meet"></label>
+        <input asp-for="equipo.meet" class="form-control">
+        <span class="text-danger" asp-validation-for="equipo.meet"></span>
+    </div> 
+      
+    <div class="form-group">
+        <label asp-for="equipo.whatapp"></label>
+        <input asp-for="equipo.whatapp" class="form-control">
+        <span class="text-danger" asp-validation-for="equipo.whatapp"></span>
+    </div> 
+      
+    <div class="form-group">
+        <label asp-for="equipo.formador"></label>
+        <select class="form-select" name="equipo.formador">
+            <option selected  value=0>Seleccion Formador</option>
+            @foreach(var elemento in Model.formadores){
+               if (elemento.id == formadorId) {
+                  <option value="@elemento.id" selected> @elemento.nombre @elemento.id </option> 
+                }
+               else {
+                  <option value="@elemento.id"> @elemento.nombre @elemento.id </option>
+               }
+            }
+        </select>
+        <span class="text-danger" asp-validation-for="equipo.formador"></span>
+    </div> 
+      
+    <div class="form-group">
+        <label asp-for="equipo.tutor"></label>
+        <select class="form-select"  name="equipo.tutor">
+            <option selected  value=0>Seleccion Tutor</option>
+            @foreach(var elemento in Model.tutores){
+               if (elemento.id == tutorId) {
+                  <option value="@elemento.id" selected> @elemento.nombre @elemento.id </option> 
+                }
+               else {
+                   <option value="@elemento.id"> @elemento.nombre @elemento.id </option>
+              }
+            }
+        </select>
+        <span class="text-danger" asp-validation-for="equipo.formador"></span>
+    </div> 
+
+    
+    <button type="submit" class="btn btn-success">Grabar</button>    
+</form>
+
+<a asp-page="./List" class="btn-default">Regresar a la lista de equipos </a>

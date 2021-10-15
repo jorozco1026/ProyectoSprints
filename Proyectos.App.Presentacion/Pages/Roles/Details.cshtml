@@ -1,0 +1,17 @@
+﻿@page
+@model Proyectos.App.Presentacion.Pages.Roles.DetailsModel
+@{
+}
+
+<h2>Datos Detallados de Rol @Model.rol.nombre</h2>
+<div>
+    ID: @Model.rol.id
+</div>
+<div>
+    NOMBRES: @Model.rol.nombre
+</div>
+<div>
+    DESCRIPCIÓN: @Model.rol.descripcion
+</div>
+
+<a asp-page="./List" class="btn btn-default">Volver a la Lista de roles.. </a>

@@ -17,6 +17,7 @@ namespace Proyectos.App.Persistencia.AppRepositorios
         public IEnumerable<Rol> roles {get; set;} 
         public IEnumerable<EstadoProyecto> estadoProyectos {get; set;} 
         public IEnumerable<EstadoTarea> estadoTareas{get; set;} 
+        public IEnumerable<Equipo> equipos{get; set;} 
 
        public Repositorios(AppContext appContext)
         {
@@ -322,6 +323,60 @@ namespace Proyectos.App.Persistencia.AppRepositorios
             if (EstadoTareaEncontrado == null)
                 return;
             _appContext.EstadoTareas.Remove( EstadoTareaEncontrado );
+            _appContext.SaveChanges();
+        }
+
+        //CRUD Equipo
+        Equipo IRepositorios.AddEquipo(Equipo equipo)
+        {
+          try
+          {
+            var EquipoAdicionado = _appContext.Equipos.Add( equipo ); //INSERT en la BD
+            _appContext.SaveChanges();                  
+            return EquipoAdicionado.Entity;
+          }catch
+          {
+                throw;
+          }
+        }
+
+        IEnumerable<Equipo> IRepositorios.GetAllEquipos(string? nombre)
+        {
+            if (nombre != null) {
+              equipos = _appContext.Equipos.Where(p => p.nombre.Contains(nombre)); //like sobre la tabla
+            }
+            else 
+               equipos = _appContext.Equipos;  //select * from equipo
+            return equipos;
+        }
+
+       Equipo IRepositorios.GetEquipo(int? idEquipo)
+       {
+            return _appContext.Equipos.FirstOrDefault(p => p.id == idEquipo);
+       }
+
+       Equipo IRepositorios.UpdateEquipo(Equipo equipo)
+        {
+            var EquipoEncontrado = _appContext.Equipos.FirstOrDefault(p => p.id == equipo.id); //SELECT
+            if (EquipoEncontrado != null)
+            {
+                EquipoEncontrado.codigo     = equipo.codigo; //
+                EquipoEncontrado.nombre          = equipo.nombre;
+                EquipoEncontrado.meet          = equipo.meet;
+                EquipoEncontrado.whatapp          = equipo.whatapp;
+                EquipoEncontrado.formador          = equipo.formador;
+                EquipoEncontrado.tutor          = equipo.tutor;
+                _appContext.SaveChanges();  //UPDATE 
+            }
+            return EquipoEncontrado;
+        }
+
+        void IRepositorios.DeleteEquipo(int idEquipo)
+        {
+            var EquipoEncontrado = _appContext.Equipos.FirstOrDefault(p => p.id == idEquipo);
+            if (EquipoEncontrado == null)
+                return;
+            _appContext.Equipos.Remove( EquipoEncontrado );
             _appContext.SaveChanges();
         }
  

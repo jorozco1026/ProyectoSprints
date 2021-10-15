@@ -1,0 +1,27 @@
+﻿@page
+@model Proyectos.App.Presentacion.Pages.Roles.EditModel
+
+@{
+    int rolId = Model.rol.id;
+}
+
+<h2>Edición de los datos del rol @Model.rol.nombre</h2>
+<form method="post">
+    <input type="hidden" asp-for="rol.id" />
+    <div class="form-group">
+        <label asp-for="rol.nombre"></label>
+        <input asp-for="rol.nombre" class="form-control">
+        <span class="text-danger" asp-validation-for="rol.nombre"></span>
+    </div>  
+      
+    <div class="form-group">
+        <label asp-for="rol.descripcion"></label>
+        <input asp-for="rol.descripcion" class="form-control">
+        <span class="text-danger" asp-validation-for="rol.descripcion"></span>
+    </div>
+
+    
+    <button type="submit" class="btn btn-success">Grabar</button>    
+</form>
+
+<a asp-page="./List" class="btn-default">Regresar a la lista de roles </a>
